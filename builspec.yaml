@@ -1,6 +1,5 @@
 
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -9,8 +8,7 @@ phases:
     commands:
       - echo Initializing environment
       - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 280799964594 --region us-east-2 --query authorizationToken --output text`
-
-  build:
+build:
     commands:
       - echo Build started on `date`
       - mvn -s settings.xml compile
@@ -21,4 +19,4 @@ phases:
 artifacts:
   files:
     - target/nextwork-web-project.war
-  discard-paths: no
+  discard-paths:no
